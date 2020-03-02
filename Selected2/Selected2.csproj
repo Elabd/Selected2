@@ -67,7 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\jquery-3.4.1.js" />
+    <Content Include="css\select2.min.css" />
+    <Content Include="js\select2.full.min.js" />
+    <Content Include="js\select2.min.js" />
+    <Content Include="js\select2.multi-checkboxes.js" />
     <Content Include="Selectet2.html" />
     <Content Include="TestForSelected2.asmx" />
     <Content Include="Web.config" />
@@ -83,6 +89,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.css.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
