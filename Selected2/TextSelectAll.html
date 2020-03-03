@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <meta charset="utf-8" />
+    <title></title>
     <link href="css/select2.min.css" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
     <script src="js/select2.full.min.js"></script>
-
+    <script src="js/select2.multi-checkboxes.js"></script>
 </head>
 <body>
     <div class="container">
@@ -20,31 +22,21 @@
     <script type="text/javascript">
         $(function () {
 
-            $('#mySelect2').select2({
+            $('#mySelect2').select2MultiCheckboxes({
 
-                multiple: true,
-                allowClear: true,
-                placeholder: "Select an attribute",
                 ajax: {
                     type: "POST",
                     url: 'TestForSelected2.asmx/GetData',
                     data: "{ q: '11',page:1 }",
-                    // async: false,
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     processResults: function (data) {
-                        // Transforms the top-level key of the response object from 'items' to 'results'
                         return {
                             results: data.results
                         };
                     }
-                },
-                closeOnSelect: false,
-
-            });//.on("change", function (e) {
-            //      $('#mySelect2').select2("close");
-            //    $('#mySelect2').select2("open");
-            // });
+                }
+            });
 
         });
     </script>

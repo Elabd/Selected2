@@ -24,7 +24,7 @@ namespace Selected2
             return "Hello World";
         }
         [WebMethod]
-        public void GetData(int page, string q)
+        public void GetData( string q , int page)
         {
             int pageSize = 20;
             Rootobject rootobject = new Rootobject();
@@ -33,8 +33,8 @@ namespace Selected2
             {
                 results.Add(new Result { id = i, text = i.ToString() });
             }
-            rootobject.results = results;//.Skip(page * pageSize).Take(pageSize).ToList();
-            rootobject.count_filtered = 100;
+            rootobject.results = results.Skip(page-1 * pageSize).Take(pageSize).ToList();
+            rootobject.total_count = 100;
             var js = new JavaScriptSerializer();
 
             HttpContext.Current.Response.Clear();
@@ -48,7 +48,7 @@ namespace Selected2
     public class Rootobject
     {
         public List<Result> results { get; set; }
-        public int count_filtered { get; set; }
+        public int total_count { get; set; }
     }
 
 
